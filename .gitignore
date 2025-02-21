@@ -1,0 +1,7 @@
+app/__pycache__
+file_processor.log
+file_processor_not_sent_records.log
+file_processor_errors.log
+config.json
+file_positions.json
+venv

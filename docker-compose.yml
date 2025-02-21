@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  file_monitor:
+    build: .
+    volumes:
+      # put config file in the root of the localhost directory
+      - ./config.json:/usr/src/app/config.json
+      #FIRST path to local directory SECOND path in the container - and that SECOND path should be used in config.json-> DIRECTORY_PATH: SECOND path
+      - /firehose_exporter/example_local_dir:/logs
+    environment:
+      - CONFIG_FILE=/usr/src/app/config.json
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+    restart: always
